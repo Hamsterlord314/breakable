@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Particles2D.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( -200, 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.08
+angular_velocity = -46.45
+angular_velocity_curve = SubResource( 2 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+color = Color( 0.0117647, 0.662745, 0.956863, 1 )
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 1
+lifetime = 3.0
+one_shot = true
+process_material = SubResource( 3 )
+script = ExtResource( 1 )
